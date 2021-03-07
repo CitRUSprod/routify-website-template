@@ -5,8 +5,8 @@
 Create a new project based on this template using degit:
 
 ```sh
-pnpx degit CitRUSprod/docker-compose-template my-app
-cd my-app
+pnpx degit CitRUSprod/routify-website-template my-website
+cd my-website
 ```
 
 The launch is done through docker-compose, but via scripts `scripts/dev` and `scripts/prod`:
