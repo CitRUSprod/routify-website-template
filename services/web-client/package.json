@@ -1,0 +1,47 @@
+{
+    "name": "routify-typescript-tailwindcss-template",
+    "scripts": {
+        "dev": "run-p dev:*",
+        "dev:routify": "routify",
+        "dev:snowpack": "snowpack dev",
+        "build": "run-s build:*",
+        "build:routify": "routify -b",
+        "build:snowpack": "snowpack build",
+        "start": "spassr",
+        "validate": "run-s validate:*",
+        "validate:typescript": "tsc --noEmit",
+        "validate:svelte": "svelte-check",
+        "prettier": "prettier --check",
+        "prettier:fix": "pnpm prettier -- --write",
+        "prettier:all": "pnpm prettier -- \"**/*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}\"",
+        "prettier:fix:all": "pnpm prettier:all -- --write"
+    },
+    "routify": {
+        "extensions": "svelte"
+    },
+    "devDependencies": {
+        "@snowpack/plugin-run-script": "2.3.0",
+        "@snowpack/plugin-svelte": "3.5.2",
+        "@snowpack/plugin-typescript": "1.2.1",
+        "cssnano": "4.1.10",
+        "npm-run-all": "4.1.5",
+        "postcss": "8.2.7",
+        "postcss-load-config": "3.0.1",
+        "postcss-preset-env": "6.7.0",
+        "snowpack": "3.0.13",
+        "snowpack-plugin-hash": "0.14.2",
+        "svelte-check": "1.2.3",
+        "svelte-hmr": "0.12.9",
+        "svelte-preprocess": "4.6.9",
+        "svelte-windicss-preprocess": "2.3.1",
+        "typescript": "4.2.3",
+        "windicss": "2.2.8"
+    },
+    "dependencies": {
+        "@mdi/js": "5.9.55",
+        "@roxi/routify": "2.14.0",
+        "mdi-svelte": "1.1.2",
+        "spassr": "2.2.3",
+        "svelte": "3.35.0"
+    }
+}
