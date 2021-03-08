@@ -11,11 +11,7 @@
         "start": "spassr",
         "validate": "run-s validate:*",
         "validate:typescript": "tsc --noEmit",
-        "validate:svelte": "svelte-check",
-        "prettier": "prettier --check",
-        "prettier:fix": "pnpm prettier -- --write",
-        "prettier:all": "pnpm prettier -- \"**/*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}\"",
-        "prettier:fix:all": "pnpm prettier:all -- --write"
+        "validate:svelte": "svelte-check"
     },
     "routify": {
         "extensions": "svelte"
