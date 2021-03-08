@@ -13,3 +13,11 @@ services:
                 NODE_IMAGE: node:15.11.0-alpine
         restart: always
         entrypoint: pnpm start
+    api:
+        container_name: api
+        build:
+            context: ../../services/api
+            args:
+                NODE_IMAGE: node:15.11.0-alpine
+        restart: always
+        entrypoint: pnpm start
