@@ -1,5 +1,5 @@
 {
-    "name": "docker-compose-template",
+    "name": "routify-website-template",
     "private": true,
     "scripts": {
         "git:commit": "git-cz",
