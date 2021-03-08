@@ -1,5 +1,5 @@
 {
-    "name": "routify-typescript-tailwindcss-template",
+    "name": "web-client",
     "scripts": {
         "dev": "run-p dev:*",
         "dev:routify": "routify",
