@@ -1,5 +1,6 @@
 {
     "name": "web-client",
+    "private": true,
     "scripts": {
         "dev": "run-p dev:*",
         "dev:routify": "routify",

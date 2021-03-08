@@ -1,5 +1,6 @@
 {
     "name": "api",
+    "private": true,
     "scripts": {
         "dev": "run-p dev:*",
         "dev:nodemon": "nodemon -w ./src -e ts,json -x \"node ./esbuild/dev && pnpm start\"",
