@@ -3,12 +3,13 @@
     "private": true,
     "scripts": {
         "git:commit": "git-cz",
+        "validate": "pnpm validate --parallel",
         "prettier": "prettier --check",
         "prettier:fix": "pnpm prettier -- --write",
         "prettier:all": "pnpm prettier -- \"**/*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}\"",
         "prettier:fix:all": "pnpm prettier:all -- --write",
-        "lint": "pnpm prettier:all",
-        "lint:fix": "pnpm prettier:fix:all",
+        "lint": "pnpm validate && pnpm prettier:all",
+        "lint:fix": "pnpm validate && pnpm prettier:fix:all",
         "ci": "pnpm lint"
     },
     "config": {
