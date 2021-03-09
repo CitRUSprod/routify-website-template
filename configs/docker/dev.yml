@@ -7,3 +7,7 @@ services:
         environment:
             WEB_CLIENT_HOST: localhost
             API_HOST: localhost
+    mongo:
+        extends:
+            file: ./base.yml
+            service: mongo

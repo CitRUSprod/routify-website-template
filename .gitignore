@@ -1,5 +1,6 @@
 .env
 .routify
 .vscode
+/volumes
 dist
 node_modules
