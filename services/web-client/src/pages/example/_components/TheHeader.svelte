@@ -2,12 +2,14 @@
     import { url } from "@roxi/routify"
     import Icon from "mdi-svelte"
     import { mdiThemeLightDark } from "@mdi/js"
-    import { darkTheme } from "@/stores"
+    import { darkTheme, auth } from "@/stores"
 
     interface Link {
         text: string
         url: string
     }
+
+    const { loggedIn } = auth
 
     const links: Array<Link> = [
         {
@@ -15,8 +17,8 @@
             url: "./"
         },
         {
-            text: "About",
-            url: "./about"
+            text: "Profile",
+            url: "./profile"
         }
     ]
 
@@ -40,9 +42,26 @@
         {/each}
     </nav>
     <button
-        class="p-2 outline-none focus:outline-none hover:bg-green-600 rounded-full duration-200"
+        class="mx-2 p-2 outline-none focus:outline-none hover:bg-green-600 rounded-full duration-200"
         on:click="{toggleDarkTheme}"
     >
         <Icon path="{mdiThemeLightDark}" />
     </button>
+    <nav class="flex space-x-2">
+        {#if $loggedIn}
+            <a
+                class="block p-2 hover:bg-green-600 rounded duration-200"
+                href="{$url('./auth/logout')}"
+            >
+                <span>Logout</span>
+            </a>
+        {:else}
+            <a
+                class="block p-2 hover:bg-green-600 rounded duration-200"
+                href="{$url('./auth/login')}"
+            >
+                <span>Login</span>
+            </a>
+        {/if}
+    </nav>
 </header>

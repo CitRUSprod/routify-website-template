@@ -16,4 +16,8 @@
         @apply bg-white;
         @apply dark:text-white dark:bg-gray-900;
     }
+
+    #routify-app {
+        @apply flex flex-col;
+    }
 </style>

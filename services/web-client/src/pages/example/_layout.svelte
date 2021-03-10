@@ -3,6 +3,6 @@
 </script>
 
 <TheHeader />
-<main class="p-4">
+<main class="p-4 flex-grow">
     <slot />
 </main>
