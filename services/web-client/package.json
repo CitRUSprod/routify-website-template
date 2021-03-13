@@ -38,9 +38,9 @@
     "dependencies": {
         "@mdi/js": "5.9.55",
         "@roxi/routify": "2.14.0",
-        "axios": "0.21.1",
         "js-cookie": "2.2.1",
         "mdi-svelte": "1.1.2",
+        "redaxios": "0.4.1",
         "spassr": "2.2.3",
         "svelte": "3.35.0"
     }

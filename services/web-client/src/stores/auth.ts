@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "redaxios"
 import cookies from "js-cookie"
 import { writable, derived } from "svelte/store"
 
@@ -10,7 +10,16 @@ interface User {
 
 function setToken() {
     const token = cookies.get("token")
-    axios.defaults.headers.authorization = token ? `Bearer ${token}` : undefined
+
+    if (token) {
+        if (!axios.defaults.headers) {
+            axios.defaults.headers = {}
+        }
+
+        axios.defaults.headers.authorization = `Bearer ${token}`
+    } else {
+        delete axios.defaults.headers?.authorization
+    }
 }
 
 function createAuthStore() {
