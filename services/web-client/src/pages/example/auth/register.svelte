@@ -1,13 +1,18 @@
 <script lang="ts">
     import { url } from "@roxi/routify"
-    import { auth } from "@/stores"
+    import { auth, messages } from "@/stores"
 
     let email = ""
     let username = ""
     let password = ""
 
     async function register() {
-        await auth.register(email, username, password)
+        try {
+            await auth.register(email, username, password)
+            messages.add("success", "You have successfully registered")
+        } catch (err) {
+            messages.add("error", err.data.message)
+        }
     }
 </script>
 

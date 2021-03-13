@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { TheMessages } from "@/components"
     import { ready } from "@roxi/routify"
     import { darkTheme, auth } from "@/stores"
 
@@ -10,3 +11,4 @@
 </script>
 
 <slot />
+<TheMessages />

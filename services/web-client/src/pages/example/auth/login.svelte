@@ -1,13 +1,19 @@
 <script lang="ts">
-    import { url } from "@roxi/routify"
-    import { auth } from "@/stores"
+    import { url, redirect } from "@roxi/routify"
+    import { auth, messages } from "@/stores"
 
     let email = ""
     let password = ""
 
     async function login() {
-        await auth.login(email, password)
-        await auth.updateUser()
+        try {
+            await auth.login(email, password)
+            await auth.updateUser()
+            messages.add("success", "You have successfully logged in")
+            $redirect("/")
+        } catch (err) {
+            messages.add("error", err.data.message)
+        }
     }
 </script>
 

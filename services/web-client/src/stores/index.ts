@@ -1,4 +1,5 @@
 import { writable, get } from "svelte/store"
+export { messages } from "./messages"
 export { auth } from "./auth"
 
 function setDarkClass(value: boolean) {

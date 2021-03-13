@@ -18,6 +18,6 @@
     }
 
     #routify-app {
-        @apply flex flex-col;
+        @apply relative flex flex-col;
     }
 </style>
