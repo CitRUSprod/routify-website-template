@@ -1,4 +1,4 @@
-const { startService } = require("esbuild")
+const esbuild = require("esbuild")
 
 async function build(config = {}) {
     const { dependencies } = require("../package.json")
@@ -10,20 +10,15 @@ async function build(config = {}) {
         outdir: "./dist",
         external: dependencies ? Object.keys(dependencies) : []
     }
-
-    const service = await startService()
     const timeStart = Date.now()
 
     try {
-        await service.build({ ...baseConfig, ...config })
+        await esbuild.build({ ...baseConfig, ...config })
 
         const timeEnd = Date.now()
         const time = timeEnd - timeStart
         console.log(`Built in ${time}ms.`)
-    } catch (err) {
-    } finally {
-        service.stop()
-    }
+    } catch (err) {}
 }
 
 module.exports = { build }
