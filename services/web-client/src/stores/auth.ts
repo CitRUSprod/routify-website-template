@@ -33,7 +33,6 @@ function createAuthStore() {
                 const { data } = await axios.get("/api/auth/user")
                 writableUser.set(data)
             } catch (err) {
-                console.log(err)
                 writableUser.set(undefined)
             }
         } else {
