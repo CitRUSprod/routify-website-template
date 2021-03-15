@@ -12,28 +12,32 @@ function setToken() {
     const token = cookies.get("token")
 
     if (token) {
-        if (!axios.defaults.headers) {
-            axios.defaults.headers = {}
-        }
-
+        axios.defaults.headers ??= {}
         axios.defaults.headers.authorization = `Bearer ${token}`
     } else {
         delete axios.defaults.headers?.authorization
     }
+
+    return token
 }
 
 function createAuthStore() {
-    const user = writable<User | undefined>(undefined)
-    const loggedIn = derived(user, u => !!u)
+    const writableUser = writable<User | undefined>(undefined)
+    const user = derived(writableUser, u => u)
 
-    async function updateUser() {
-        setToken()
+    async function sync() {
+        const token = setToken()
 
-        try {
-            const { data } = await axios.get("/api/auth/user")
-            user.set(data)
-        } catch (err) {
-            user.set(undefined)
+        if (token) {
+            try {
+                const { data } = await axios.get("/api/auth/user")
+                writableUser.set(data)
+            } catch (err) {
+                console.log(err)
+                writableUser.set(undefined)
+            }
+        } else {
+            writableUser.set(undefined)
         }
     }
 
@@ -50,15 +54,15 @@ function createAuthStore() {
             email,
             password
         })
-        await updateUser()
+        await sync()
     }
 
     async function logout() {
         cookies.remove("token")
-        user.set(undefined)
+        await sync()
     }
 
-    return { loggedIn, user, updateUser, register, login, logout }
+    return { user, sync, register, login, logout }
 }
 
 export const auth = createAuthStore()

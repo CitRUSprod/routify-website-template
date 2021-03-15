@@ -9,7 +9,7 @@
         url: string
     }
 
-    const { loggedIn } = auth
+    const { user } = auth
 
     const links: Array<Link> = [
         {
@@ -48,7 +48,7 @@
         <Icon path="{mdiThemeLightDark}" />
     </button>
     <nav class="flex space-x-2">
-        {#if $loggedIn}
+        {#if $user}
             <a
                 class="block p-2 hover:bg-green-600 rounded duration-200"
                 href="{$url('./auth/logout')}"

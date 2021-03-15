@@ -8,7 +8,6 @@
     async function login() {
         try {
             await auth.login(email, password)
-            await auth.updateUser()
             messages.add("success", "You have successfully logged in")
             $redirect("/")
         } catch (err) {

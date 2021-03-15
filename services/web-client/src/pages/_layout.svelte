@@ -1,12 +1,12 @@
 <script lang="ts">
     import { TheMessages } from "@/components"
-    import { ready } from "@roxi/routify"
+    import { onMount } from "svelte"
     import { darkTheme, auth } from "@/stores"
 
     darkTheme.sync()
 
-    auth.updateUser().then(() => {
-        $ready()
+    onMount(async () => {
+        await auth.sync()
     })
 </script>
 
