@@ -1,4 +1,5 @@
 module.exports = {
+    plugins: ["./node_modules/prettier-plugin-packagejson"],
     printWidth: 80,
     semi: false,
     singleQuote: false,

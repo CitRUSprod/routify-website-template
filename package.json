@@ -6,11 +6,20 @@
         "validate": "pnpm validate --parallel",
         "prettier": "prettier --check",
         "prettier:fix": "pnpm prettier -- --write",
-        "prettier:all": "pnpm prettier -- \"**/*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}\"",
+        "prettier:all": "pnpm prettier -- \"./**/*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}\" \"!./volumes\"",
         "prettier:fix:all": "pnpm prettier:all -- --write",
         "lint": "pnpm validate && pnpm prettier:all",
         "lint:fix": "pnpm validate && pnpm prettier:fix:all",
         "ci": "pnpm lint"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g ./configs/commits/commitlint.js"
+        }
+    },
+    "lint-staged": {
+        "*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}": "pnpm prettier:fix"
     },
     "config": {
         "commitizen": {
@@ -19,15 +28,6 @@
         "cz-customizable": {
             "config": "./configs/commits/commitizen.js"
         }
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g ./configs/commits/commitlint.js",
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{html,md,json,yml,yaml,js,ts,svelte,css,pcss}": "pnpm prettier:fix"
     },
     "prettier": "./configs/prettier/index.js",
     "devDependencies": {
@@ -38,6 +38,7 @@
         "inquirer": "8.0.0",
         "lint-staged": "10.5.4",
         "prettier": "2.2.1",
+        "prettier-plugin-packagejson": "2.2.10",
         "prettier-plugin-svelte": "2.2.0",
         "svelte": "3.35.0"
     }
