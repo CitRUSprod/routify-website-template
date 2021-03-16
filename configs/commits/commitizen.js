@@ -1,4 +1,5 @@
-const commitTypes = require("./types.json")
+const { Separator } = require("inquirer")
+const { types, getScopes } = require("./base")
 
 function convertCommitTypes(typesObject = {}) {
     const typeNames = Object.keys(typesObject)
@@ -11,7 +12,7 @@ function convertCommitTypes(typesObject = {}) {
         return max
     }, 0)
 
-    const types = typeNames.reduce((acc, typeName) => {
+    const commitTypes = typeNames.reduce((acc, typeName) => {
         const spacing = " ".repeat(maxLength - typeName.length)
         acc.push({
             name: `${typeName}:${spacing} ${typesObject[typeName]}`,
@@ -20,13 +21,23 @@ function convertCommitTypes(typesObject = {}) {
         return acc
     }, [])
 
-    return types
+    return commitTypes
 }
 
 module.exports = {
-    types: convertCommitTypes(commitTypes),
-    allowCustomScopes: true,
-    allowBreakingChanges: ["feat", "fix"],
+    types: convertCommitTypes(types),
+    scopes: [
+        new Separator("─────── Services ───────"),
+        ...getScopes("services"),
+        new Separator("─────── Configs ────────"),
+        ...getScopes("configs"),
+        new Separator("──────── Other ─────────"),
+        "scripts",
+        {
+            name: "(empty)",
+            value: false
+        }
+    ],
     skipQuestions: ["body", "footer"],
     upperCaseSubject: true
 }
