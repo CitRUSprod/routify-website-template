@@ -12,7 +12,7 @@ MODE=$1
 shift
 
 "$SCRIPTS_DIR"/clone-env
-docker-compose -f "$DOCKER_CONFIGS_DIR"/"$MODE".yml -p "$PROJECT_NAME"_"$MODE" "$@"
+docker-compose --env-file "$ABS_ROOT_PATH"/.env -f "$DOCKER_CONFIGS_DIR"/"$MODE".yml -p "$PROJECT_NAME"_"$MODE" "$@"
 "$SCRIPTS_DIR"/prune
 
 exit 0
