@@ -9,7 +9,7 @@ const port = 6702
 
 const app = fastify()
 
-const mongoPort = process.env.MONGO_PORT as string
+const mongoPort = process.env.MONGO_PORT ?? "27017"
 const mongoHost = process.env.MONGO_HOST ?? "localhost"
 const mongoDbName = process.env.MONGO_DB_NAME as string
 const localClientSecret = process.env.LOCAL_CLIENT_SECRET as string
