@@ -5,10 +5,10 @@
     import { messages } from "@/stores"
 </script>
 
-<div class="absolute bottom-4 right-4 w-60 space-y-2">
+<div class="space-y-2 right-4 bottom-4 w-60 absolute">
     {#each $messages as message (message.id)}
         <div
-            class="p-3 flex flex-grow items-center rounded-lg shadow"
+            class="rounded-lg flex shadow p-3 items-center select-none"
             class:success="{message.type === 'success'}"
             class:error="{message.type === 'error'}"
             class:warning="{message.type === 'warning'}"
@@ -16,7 +16,7 @@
             in:fly="{{ y: -200, duration: 500 }}"
             out:fade
         >
-            <div class="message-text">{message.text}</div>
+            <div class="flex-grow pr-3 break-words">{message.text}</div>
             <div
                 class="cursor-pointer"
                 on:click="{() => messages.remove(message.id)}"
@@ -28,25 +28,19 @@
 </div>
 
 <style lang="postcss">
-    .message-text {
-        @apply pr-3;
-
-        word-break: break-word;
-    }
-
     .success {
-        @apply bg-green-500;
+        @apply bg-success;
     }
 
     .error {
-        @apply bg-red-500;
+        @apply bg-error;
     }
 
     .warning {
-        @apply bg-yellow-500;
+        @apply bg-warning;
     }
 
     .info {
-        @apply bg-blue-500;
+        @apply bg-info;
     }
 </style>

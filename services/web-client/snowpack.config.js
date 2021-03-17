@@ -6,6 +6,7 @@ const srcMount = {
 
 module.exports = {
     devOptions: {
+        open: "none",
         port: 6701,
         output: "stream"
     },

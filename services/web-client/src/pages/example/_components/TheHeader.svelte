@@ -27,14 +27,14 @@
     }
 </script>
 
-<header class="flex items-center p-4 text-lg bg-green-700 text-white">
+<header class="bg-primary flex text-lg text-white p-4 items-center">
     <h1 class="mr-8 text-2xl">
         <a href="/">Routify App</a>
     </h1>
-    <nav class="flex space-x-2 flex-grow">
+    <nav class="flex flex-grow space-x-2">
         {#each links as link}
             <a
-                class="block p-2 hover:bg-green-600 rounded duration-200"
+                class="rounded p-2 duration-200 block hover:bg-secondary"
                 href="{$url(link.url)}"
             >
                 <span>{link.text}</span>
@@ -42,7 +42,7 @@
         {/each}
     </nav>
     <button
-        class="mx-2 p-2 outline-none focus:outline-none hover:bg-green-600 rounded-full duration-200"
+        class="rounded-full outline-none mx-2 p-2 duration-200 hover:bg-secondary focus:outline-none"
         on:click="{toggleDarkTheme}"
     >
         <Icon path="{mdiThemeLightDark}" />
@@ -50,14 +50,14 @@
     <nav class="flex space-x-2">
         {#if $user}
             <a
-                class="block p-2 hover:bg-green-600 rounded duration-200"
+                class="rounded p-2 duration-200 block hover:bg-secondary"
                 href="{$url('./auth/logout')}"
             >
                 <span>Logout</span>
             </a>
         {:else}
             <a
-                class="block p-2 hover:bg-green-600 rounded duration-200"
+                class="rounded p-2 duration-200 block hover:bg-secondary"
                 href="{$url('./auth/login')}"
             >
                 <span>Login</span>

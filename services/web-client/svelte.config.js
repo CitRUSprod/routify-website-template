@@ -10,8 +10,6 @@ module.exports = {
             globalPreflight: true,
             globalUtility: true
         }),
-        sveltePreprocess({
-            postcss: true
-        })
+        sveltePreprocess()
     ]
 }

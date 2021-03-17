@@ -16,34 +16,34 @@
     }
 </script>
 
-<div class="h-full flex justify-center items-center">
-    <div class="p-8 text-center border-2 border-blue-500 rounded-lg">
+<div class="flex h-full justify-center items-center">
+    <div class="border-primary rounded-lg border-2 text-center p-8">
         <h1 class="text-4xl">Login</h1>
         <div class="mt-4">
             <input
-                class="p-2 rounded outline-none focus:outline-none bg-gray-200 dark:bg-gray-800"
+                class="rounded outline-none bg-gray-200 p-2 dark:bg-gray-800 focus:outline-none"
                 placeholder="Email"
                 bind:value="{email}"
             />
         </div>
         <div class="mt-2">
             <input
-                class="p-2 rounded outline-none focus:outline-none bg-gray-200 dark:bg-gray-800"
+                class="rounded outline-none bg-gray-200 p-2 dark:bg-gray-800 focus:outline-none"
                 placeholder="Password"
                 type="password"
                 bind:value="{password}"
             />
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="flex mt-4 justify-between">
             <a href="{$url('./register')}">
                 <button
-                    class="p-2 outline-none focus:outline-none text-white text-blue-500 hover:bg-blue-200 dark:hover:bg-blue-400 dark:hover:text-white rounded duration-200"
+                    class="rounded outline-none text-primary p-2 duration-200 hover:bg-primary hover:text-white focus:outline-none"
                 >
                     Register
                 </button>
             </a>
             <button
-                class="p-2 outline-none focus:outline-none text-white bg-blue-500 hover:bg-blue-600 rounded duration-200"
+                class="bg-primary rounded outline-none text-white p-2 duration-200 hover:bg-secondary focus:outline-none"
                 on:click="{login}"
             >
                 Login
