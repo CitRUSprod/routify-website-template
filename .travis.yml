@@ -13,7 +13,7 @@ before_install:
     - pnpm config set store-dir ~/.pnpm-store
 
 install:
-    - pnpm i --shared-workspace-lockfile false
+    - pnpm i
     - pnpm build --parallel
 
 script:

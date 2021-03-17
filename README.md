@@ -21,7 +21,7 @@ Run the project just enter these commands and open http://localhost:6700 in your
 ```sh
 # Development
 scripts/dev up -d
-pnpm i --shared-workspace-lockfile false
+pnpm i
 pnpm dev --parallel
 
 # Production
