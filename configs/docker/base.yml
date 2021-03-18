@@ -1,12 +1,10 @@
 services:
     nginx:
-        container_name: nginx
         image: nginx:1.19.7-alpine
         restart: always
         volumes:
             - ../nginx:/etc/nginx/templates
     web-client:
-        container_name: web-client
         build:
             context: ../../services/web-client
             args:
@@ -14,7 +12,6 @@ services:
         restart: always
         entrypoint: pnpm start
     api:
-        container_name: api
         build:
             context: ../../services/api
             args:
@@ -29,7 +26,6 @@ services:
             GMAIL_NAME: ${GMAIL_NAME}
         entrypoint: pnpm start
     mongo:
-        container_name: mongo
         image: mongo:4.4.4
         restart: always
         ports:
