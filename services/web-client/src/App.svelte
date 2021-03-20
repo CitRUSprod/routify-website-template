@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Router } from "@roxi/routify"
+
     import { routes } from "@routify/routes"
 </script>
 
@@ -14,7 +15,7 @@
 
     body {
         @apply bg-white;
-        @apply dark:text-white dark:bg-gray-900;
+        @apply dark:(text-white bg-gray-900);
     }
 
     #routify-app {
