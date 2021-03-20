@@ -55,9 +55,7 @@
             />
         </div>
         <div class="flex mt-4 justify-between">
-            <Button color="primary" href="{$url('./login')}" text>
-                Login
-            </Button>
+            <Button color="primary" href="{$url('./login')}" text>Login</Button>
             <Button
                 color="primary"
                 loading="{loading}"
