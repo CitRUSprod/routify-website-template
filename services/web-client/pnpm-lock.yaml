@@ -2,7 +2,6 @@ dependencies:
   '@mdi/js': 5.9.55
   '@roxi/routify': 2.15.1
   js-cookie: 2.2.1
-  mdi-svelte: 1.1.2
   redaxios: 0.4.1
   spassr: 2.4.0
   svelte: 3.35.0
@@ -1650,10 +1649,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
-  /mdi-svelte/1.1.2:
-    dev: false
-    resolution:
-      integrity: sha512-jVn/CxVzOXTVWDJpUgkgbL/Dt3GTcxa51bOZHQtmrW+lPNypKXddNJIvcqSX+xW6KRIgjB4m715XjaqbDT/mFA==
   /mdn-data/2.0.14:
     dev: true
     resolution:
@@ -2990,7 +2985,6 @@ specifiers:
   '@snowpack/plugin-typescript': 1.2.1
   '@types/js-cookie': 2.2.6
   js-cookie: 2.2.1
-  mdi-svelte: 1.1.2
   npm-run-all: 4.1.5
   redaxios: 0.4.1
   snowpack: 3.0.13

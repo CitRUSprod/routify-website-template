@@ -1,6 +1,5 @@
 <script lang="ts">
-    import Icon from "mdi-svelte"
-    import { Button } from "@/components"
+    import { Button, Icon } from "@/components"
 
     import { url } from "@roxi/routify"
     import { mdiThemeLightDark } from "@mdi/js"

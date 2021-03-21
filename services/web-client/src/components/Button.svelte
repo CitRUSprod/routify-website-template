@@ -1,6 +1,7 @@
 <script lang="ts">
+    import Icon from "./Icon.svelte"
+
     import { createEventDispatcher } from "svelte"
-    import Icon from "mdi-svelte"
     import { mdiLoading } from "@mdi/js"
 
     type Color =
@@ -65,7 +66,7 @@
             @apply rounded-full p-0 w-10 h-10;
 
             > * {
-                @apply rounded-full;
+                @apply rounded-full text-center;
             }
         }
 
