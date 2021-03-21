@@ -1,8 +1,11 @@
 <script lang="ts">
     import { Button, TextField } from "@/components"
 
+    import { onMount } from "svelte"
     import { url, redirect } from "@roxi/routify"
     import { auth, messages } from "@/stores"
+
+    const { user } = auth
 
     let email = ""
     let password = ""
@@ -10,6 +13,12 @@
     let loading = false
 
     $: disabled = !email || !password
+
+    onMount(() => {
+        if ($user) {
+            $redirect("/")
+        }
+    })
 
     async function login() {
         loading = true
@@ -19,7 +28,7 @@
             messages.add("success", "You have successfully logged in")
             $redirect("/")
         } catch (err) {
-            messages.add("error", err.data.message)
+            messages.add("error", err.data?.message ?? err.message)
         }
 
         loading = false

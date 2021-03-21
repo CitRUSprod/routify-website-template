@@ -1,5 +1,4 @@
-import axios from "redaxios"
-import cookies from "js-cookie"
+import { axios, cookies, syncToken } from "@/assets/utils"
 import { writable, derived } from "svelte/store"
 
 interface User {
@@ -8,25 +7,12 @@ interface User {
     verified: boolean
 }
 
-function setToken() {
-    const token = cookies.get("token")
-
-    if (token) {
-        axios.defaults.headers ??= {}
-        axios.defaults.headers.authorization = `Bearer ${token}`
-    } else {
-        delete axios.defaults.headers?.authorization
-    }
-
-    return token
-}
-
 function createAuthStore() {
     const writableUser = writable<User | undefined>(undefined)
     const user = derived(writableUser, u => u)
 
     async function sync() {
-        const token = setToken()
+        const token = syncToken()
 
         if (token) {
             try {

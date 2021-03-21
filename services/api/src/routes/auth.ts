@@ -33,7 +33,7 @@ interface EmailVerificationToken {
 
 const { UserModel } = Database.models
 
-const webPort = process.env.WEB_PORT as string
+const websitePort = process.env.WEBSITE_PORT as string
 
 const gmail = {
     username: process.env.GMAIL_USERNAME as string,
@@ -56,7 +56,7 @@ const transporter = nodemailer.createTransport(
     }
 )
 
-function sendMail(to: string, subject: string, message: string) {
+function sendEmail(to: string, subject: string, message: string) {
     return new Promise((resolve, reject) => {
         transporter.sendMail({ to, subject, html: message }, (err, info) => {
             if (err) {
@@ -266,7 +266,7 @@ export default (
         }
     })
 
-    app.post("/send-email-verification", {
+    app.post("/send-verification-email", {
         preHandler: app.auth([verifyJwt]),
         async handler(req: FastifyRequest & { user: any }, reply) {
             const { id }: UserPayload = req.user
@@ -292,8 +292,8 @@ export default (
                 })
 
                 const subject = "Email confirmation"
-                const message = `<h3>Dear ${username}</h3>\n<div><a href="http://127.0.0.1:${webPort}/auth/verify-email-${token}">Confirm Email</a></div>`
-                await sendMail(email, subject, message)
+                const message = `<h3>Dear ${username}</h3>\n<div><a href="http://127.0.0.1:${websitePort}/example/auth/verify-email/${token}">Confirm Email</a></div>`
+                await sendEmail(email, subject, message)
 
                 reply.send()
             } else {

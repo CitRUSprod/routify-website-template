@@ -13,15 +13,10 @@
 
     const { user } = auth
 
-    const links: Array<Link> = [
-        {
-            text: "Home",
-            url: "./"
-        },
-        {
-            text: "Profile",
-            url: "./profile"
-        }
+    let links: Array<Link>
+    $: links = [
+        { text: "Home", url: "./" },
+        ...($user ? [{ text: "Profile", url: "./profile" }] : [])
     ]
 
     function toggleDarkTheme() {
