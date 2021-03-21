@@ -8,18 +8,18 @@ dependencies:
   svelte: 3.35.0
 devDependencies:
   '@snowpack/plugin-run-script': 2.3.0
-  '@snowpack/plugin-svelte': 3.5.2_svelte@3.35.0+typescript@4.2.3
+  '@snowpack/plugin-svelte': 3.6.0_svelte@3.35.0+typescript@4.2.3
   '@snowpack/plugin-typescript': 1.2.1_typescript@4.2.3
   '@types/js-cookie': 2.2.6
   npm-run-all: 4.1.5
   snowpack: 3.0.13
   snowpack-plugin-hash: 0.14.2_snowpack@3.0.13
-  svelte-check: 1.2.5_svelte@3.35.0
-  svelte-hmr: 0.13.1_svelte@3.35.0
+  svelte-check: 1.2.6_svelte@3.35.0
+  svelte-hmr: 0.14.0_svelte@3.35.0
   svelte-preprocess: 4.6.9_svelte@3.35.0+typescript@4.2.3
   svelte-windicss-preprocess: 2.3.1
   typescript: 4.2.3
-  windicss: 2.4.7
+  windicss: 2.5.3
 lockfileVersion: 5.2
 packages:
   /@ampproject/remapping/1.0.1:
@@ -162,7 +162,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-rIbD67uzTPkzemMFbw5seUm/hZFrToTSqN/SGGq5XaU45ftX2sCRzp0lqSH+lZYhC5QTSm5RxXW1HcuPOlbPXQ==
-  /@snowpack/plugin-svelte/3.5.2_svelte@3.35.0+typescript@4.2.3:
+  /@snowpack/plugin-svelte/3.6.0_svelte@3.35.0+typescript@4.2.3:
     dependencies:
       rollup-plugin-svelte: 7.1.0_svelte@3.35.0
       svelte: 3.35.0
@@ -173,7 +173,7 @@ packages:
       svelte: ^3.21.0
       typescript: '*'
     resolution:
-      integrity: sha512-i7OhkIRNt1uJ/y3qpowlU7icjtSgFPIl/GjMmBxhtwoIqHAnowFLh1Ur5G6S36GCFo65ymClnYfEIM/2x1+wPQ==
+      integrity: sha512-YHzbkFOX8ahisc/SUk13Wd004KDPZRhIgalfCXCJIyRvgstPuOZ3ejcirYcPlyf1+G4mW69HLN7/y98JPTvAJA==
   /@snowpack/plugin-typescript/1.2.1_typescript@4.2.3:
     dependencies:
       execa: 5.0.0
@@ -2195,7 +2195,7 @@ packages:
       estree-walker: 0.6.1
     resolution:
       integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
-  /rollup/2.41.4:
+  /rollup/2.42.1:
     dev: true
     engines:
       node: '>=10.0.0'
@@ -2203,7 +2203,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     resolution:
-      integrity: sha512-f9IHfMO8p2Y8OdisI7Oj3oKkPuaQ6cgSwYqAi0TDvP3w2p+oX1VejX/w28a1h8WTnrapzfO5d4Uqhww+gL0b0g==
+      integrity: sha512-/y7M2ULg06JOXmMpPzhTeQroJSchy8lX8q6qrjqil0jmLz6ejCWbQzVnWTsdmMQRhfU0QcwtiW8iZlmrGXWV4g==
   /run-parallel/1.2.0:
     dependencies:
       queue-microtask: 1.2.2
@@ -2325,7 +2325,7 @@ packages:
       esbuild: 0.8.57
       open: 7.4.2
       resolve: 1.20.0
-      rollup: 2.41.4
+      rollup: 2.42.1
     dev: true
     engines:
       node: '>=10.19.0'
@@ -2486,7 +2486,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
-  /svelte-check/1.2.5_svelte@3.35.0:
+  /svelte-check/1.2.6_svelte@3.35.0:
     dependencies:
       chalk: 4.1.0
       chokidar: 3.5.1
@@ -2502,7 +2502,7 @@ packages:
     peerDependencies:
       svelte: ^3.24.0
     resolution:
-      integrity: sha512-1hqlH/J86lpuXk6+SSeZRfCfxXvCpqYGfgPb2sD0YW+tueknbJGR9oaGaLzytU0dgja4ShG+zQzHEsjKb0tFeA==
+      integrity: sha512-jl8rGvL+qfBrGJur/hvY177P9qhbpOLrXLqsSiaWRjI771Us7OPFUaghhtUv9EmET5OT4xtmh5PfxUTxD7UCkg==
   /svelte-hmr/0.12.9_svelte@3.35.0:
     dependencies:
       svelte: 3.35.0
@@ -2511,14 +2511,14 @@ packages:
       svelte: '>=3.19.0'
     resolution:
       integrity: sha512-SGE7Odznj4dqZtUVIWcoPCvZ9gHImxVIIjrz+O3DDSi0j4OaSLim6MRF4UdhlBKeW3glSRc+tXNSKYvM5x+Dyw==
-  /svelte-hmr/0.13.1_svelte@3.35.0:
+  /svelte-hmr/0.14.0_svelte@3.35.0:
     dependencies:
       svelte: 3.35.0
     dev: true
     peerDependencies:
       svelte: '>=3.19.0'
     resolution:
-      integrity: sha512-dv71eRBhtb/Q0I9db8ss2DjualeFFwEQQ97jpIUWJeX3W/xfFm7FZEWUa+92q5wPXvTZglN2mC+X4nzBuBVXcg==
+      integrity: sha512-Rc4w11U+U30m/cHqOJ/xioFSEAY5fd5muiQC7FL6XJuJAuB2OIJoEZl3KEJR2uO1/f4Bw0PdrugtbxcngSsOtQ==
   /svelte-preprocess/4.6.9_svelte@3.35.0+typescript@4.2.3:
     dependencies:
       '@types/pug': 2.0.4
@@ -2573,7 +2573,7 @@ packages:
     dependencies:
       chalk: 4.1.0
       magic-string: 0.25.7
-      windicss: 2.4.7
+      windicss: 2.5.3
     dev: true
     resolution:
       integrity: sha512-YuLxBE5C3D0hpJPtLgQP+MmgMzEkGNPmUN4eKHB6aQfkjyvNhQbx0xWuGrN++kVphFafZggRm5pmJnedgxHbmw==
@@ -2904,13 +2904,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
-  /windicss/2.4.7:
+  /windicss/2.5.3:
     dev: true
     engines:
       node: '>= 12'
     hasBin: true
     resolution:
-      integrity: sha512-7CuHMxa4r/sUHVqF1v+glcxWVetbG2j5V+JXRk/C//+CN8Sn8yoWHl8KcDqaDtX6nLF8WQRl0q56GUshgWgxwQ==
+      integrity: sha512-U1gQoX9pHZ3sldxRy9KCx1yn8wL3pHgraRvBi3x90yqgOar3Lktu5fypWrgio6Sy5XNX0tdLP4B2HsxsSqzpiA==
   /word-wrap/1.2.3:
     dev: false
     engines:
@@ -2986,7 +2986,7 @@ specifiers:
   '@mdi/js': 5.9.55
   '@roxi/routify': 2.15.1
   '@snowpack/plugin-run-script': 2.3.0
-  '@snowpack/plugin-svelte': 3.5.2
+  '@snowpack/plugin-svelte': 3.6.0
   '@snowpack/plugin-typescript': 1.2.1
   '@types/js-cookie': 2.2.6
   js-cookie: 2.2.1
@@ -2997,9 +2997,9 @@ specifiers:
   snowpack-plugin-hash: 0.14.2
   spassr: 2.4.0
   svelte: 3.35.0
-  svelte-check: 1.2.5
-  svelte-hmr: 0.13.1
+  svelte-check: 1.2.6
+  svelte-hmr: 0.14.0
   svelte-preprocess: 4.6.9
   svelte-windicss-preprocess: 2.3.1
   typescript: 4.2.3
-  windicss: 2.4.7
+  windicss: 2.5.3
