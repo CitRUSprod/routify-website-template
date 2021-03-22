@@ -2,6 +2,7 @@ dependencies:
   '@mdi/js': 5.9.55
   '@roxi/routify': 2.15.1
   js-cookie: 2.2.1
+  nprogress: 0.2.0
   redaxios: 0.4.1
   spassr: 2.4.0
   svelte: 3.35.0
@@ -10,6 +11,7 @@ devDependencies:
   '@snowpack/plugin-svelte': 3.6.0_svelte@3.35.0+typescript@4.2.3
   '@snowpack/plugin-typescript': 1.2.1_typescript@4.2.3
   '@types/js-cookie': 2.2.6
+  '@types/nprogress': 0.2.0
   npm-run-all: 4.1.5
   snowpack: 3.0.13
   snowpack-plugin-hash: 0.14.2_snowpack@3.0.13
@@ -261,6 +263,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Lt+wj8NVPx0zUmUwumiVXapmaLUcAk3yPuHCFVXras9k5VT9TdhJqKqGVUQCD60OTMCl0qxJ57OiTL0Mic3Iag==
+  /@types/nprogress/0.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==
   /@types/pug/2.0.4:
     dev: true
     resolution:
@@ -1842,6 +1848,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
+  /nprogress/0.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=
   /nwsapi/2.2.0:
     dev: false
     resolution:
@@ -2984,8 +2994,10 @@ specifiers:
   '@snowpack/plugin-svelte': 3.6.0
   '@snowpack/plugin-typescript': 1.2.1
   '@types/js-cookie': 2.2.6
+  '@types/nprogress': 0.2.0
   js-cookie: 2.2.1
   npm-run-all: 4.1.5
+  nprogress: 0.2.0
   redaxios: 0.4.1
   snowpack: 3.0.13
   snowpack-plugin-hash: 0.14.2

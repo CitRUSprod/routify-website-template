@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { TheMessages } from "./_components"
+    import { ThePageProgressBar, TheMessages } from "./_components"
 
     import { onMount } from "svelte"
     import { auth } from "@/stores"
@@ -9,5 +9,6 @@
     })
 </script>
 
+<ThePageProgressBar />
 <slot />
 <TheMessages />
