@@ -37,6 +37,7 @@
     .break-text {
         word-break: break-word;
     }
+
     .success {
         @apply bg-success;
     }
