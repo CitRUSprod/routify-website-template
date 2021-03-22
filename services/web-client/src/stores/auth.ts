@@ -25,11 +25,11 @@ function createAuthStore() {
             } catch (err) {
                 writableUser.set(undefined)
             }
-
-            writableSyncing.set(false)
         } else {
             writableUser.set(undefined)
         }
+
+        writableSyncing.set(false)
     }
 
     async function register(email: string, username: string, password: string) {
