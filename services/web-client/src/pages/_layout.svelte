@@ -4,10 +4,9 @@
     import { onMount } from "svelte"
     import { darkTheme, auth } from "@/stores"
 
-    darkTheme.sync()
-
-    onMount(async () => {
-        await auth.sync()
+    onMount(() => {
+        darkTheme.sync()
+        auth.sync()
     })
 </script>
 

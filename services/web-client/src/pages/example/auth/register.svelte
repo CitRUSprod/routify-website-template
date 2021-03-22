@@ -1,11 +1,14 @@
 <script lang="ts">
     import { Button, TextField } from "@/components"
 
-    import { onMount } from "svelte"
     import { url, redirect } from "@roxi/routify"
     import { auth, messages } from "@/stores"
 
-    const { user } = auth
+    const { user, syncing } = auth
+
+    $: if ($user && !$syncing) {
+        $redirect("/")
+    }
 
     let email = ""
     let username = ""
@@ -14,12 +17,6 @@
     let loading = false
 
     $: disabled = !email || !username || !password
-
-    onMount(() => {
-        if ($user) {
-            $redirect("/")
-        }
-    })
 
     async function register() {
         loading = true

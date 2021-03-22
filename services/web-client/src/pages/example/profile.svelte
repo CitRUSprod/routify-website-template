@@ -1,18 +1,15 @@
 <script lang="ts">
     import { Button } from "@/components"
 
-    import { onMount } from "svelte"
     import { redirect } from "@roxi/routify"
     import { auth, messages } from "@/stores"
     import { axios } from "@/assets/utils"
 
-    const { user } = auth
+    const { user, syncing } = auth
 
-    onMount(() => {
-        if (!$user) {
-            $redirect("/")
-        }
-    })
+    $: if (!$user && !$syncing) {
+        $redirect("/")
+    }
 
     async function sendVerificationEmail() {
         try {

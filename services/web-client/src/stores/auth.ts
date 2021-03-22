@@ -8,19 +8,25 @@ interface User {
 }
 
 function createAuthStore() {
-    const writableUser = writable<User | undefined>(undefined)
+    const writableUser = writable<Readonly<User> | undefined>(undefined)
+    const writableSyncing = writable(true)
     const user = derived(writableUser, u => u)
+    const syncing = derived(writableSyncing, s => s)
 
     async function sync() {
         const token = syncToken()
 
         if (token) {
+            writableSyncing.set(true)
+
             try {
                 const { data } = await axios.get("/api/auth/user")
                 writableUser.set(data)
             } catch (err) {
                 writableUser.set(undefined)
             }
+
+            writableSyncing.set(false)
         } else {
             writableUser.set(undefined)
         }
@@ -47,7 +53,7 @@ function createAuthStore() {
         await sync()
     }
 
-    return { user, sync, register, login, logout }
+    return { user, syncing, sync, register, login, logout }
 }
 
 export const auth = createAuthStore()
