@@ -3,7 +3,7 @@
 
     import { url } from "@roxi/routify"
     import { mdiThemeLightDark } from "@mdi/js"
-    import { darkTheme, auth } from "@/stores"
+    import { theme, auth } from "@/stores"
 
     interface Link {
         text: string
@@ -17,10 +17,6 @@
         { text: "Home", url: "./" },
         ...($user ? [{ text: "Profile", url: "./profile" }] : [])
     ]
-
-    function toggleDarkTheme() {
-        $darkTheme = !$darkTheme
-    }
 </script>
 
 <header class="bg-primary flex p-4 items-center">
@@ -35,7 +31,7 @@
         {/each}
     </nav>
     <nav class="flex space-x-2">
-        <Button color="primary" icon on:click="{toggleDarkTheme}">
+        <Button color="primary" icon on:click="{theme.toggle}">
             <Icon path="{mdiThemeLightDark}" />
         </Button>
         {#if $user}

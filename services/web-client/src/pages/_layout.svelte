@@ -2,10 +2,9 @@
     import { TheMessages } from "./_components"
 
     import { onMount } from "svelte"
-    import { darkTheme, auth } from "@/stores"
+    import { auth } from "@/stores"
 
     onMount(() => {
-        darkTheme.sync()
         auth.sync()
     })
 </script>
