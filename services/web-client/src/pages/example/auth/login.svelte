@@ -15,13 +15,16 @@
 
     let loading = false
 
-    $: disabled = !email || !password
+    $: trimmedEmail = email.trim()
+    $: trimmedPassword = password.trim()
+
+    $: disabled = !trimmedEmail || !trimmedPassword
 
     async function login() {
         loading = true
 
         try {
-            await auth.login(email, password)
+            await auth.login(trimmedEmail, trimmedPassword)
             messages.add("success", "You have successfully logged in")
             $redirect("/")
         } catch (err) {
@@ -29,6 +32,14 @@
         }
 
         loading = false
+    }
+
+    async function onEnter(e: KeyboardEvent) {
+        if (e.key === "Enter" && !disabled) {
+            await login()
+            const input = e.target as HTMLInputElement
+            input.focus()
+        }
     }
 </script>
 
@@ -40,7 +51,9 @@
                 class="w-full"
                 placeholder="Email"
                 disabled="{loading}"
+                autofocus
                 bind:value="{email}"
+                on:keypress="{onEnter}"
             />
         </div>
         <div class="mt-2">
@@ -50,6 +63,7 @@
                 type="password"
                 disabled="{loading}"
                 bind:value="{password}"
+                on:keypress="{onEnter}"
             />
         </div>
         <div class="flex mt-4 justify-between">

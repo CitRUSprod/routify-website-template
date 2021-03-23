@@ -13,16 +13,27 @@
     let email = ""
     let username = ""
     let password = ""
+    let passwordConfirmation = ""
+
+    $: trimmedEmail = email.trim()
+    $: trimmedUsername = username.trim()
+    $: trimmedPassword = password.trim()
+    $: trimmedPasswordConfirmation = passwordConfirmation.trim()
 
     let loading = false
 
-    $: disabled = !email || !username || !password
+    $: disabled =
+        !trimmedEmail ||
+        !trimmedUsername ||
+        !trimmedPassword ||
+        !trimmedPasswordConfirmation ||
+        trimmedPassword !== trimmedPasswordConfirmation
 
     async function register() {
         loading = true
 
         try {
-            await auth.register(email, username, password)
+            await auth.register(trimmedEmail, trimmedUsername, trimmedPassword)
             messages.add("success", "You have successfully registered")
             $redirect($url("./login"))
         } catch (err) {
@@ -30,6 +41,14 @@
         }
 
         loading = false
+    }
+
+    async function onEnter(e: KeyboardEvent) {
+        if (e.key === "Enter" && !disabled) {
+            await register()
+            const input = e.target as HTMLInputElement
+            input.focus()
+        }
     }
 </script>
 
@@ -41,7 +60,9 @@
                 class="w-full"
                 placeholder="Email"
                 disabled="{loading}"
+                autofocus
                 bind:value="{email}"
+                on:keypress="{onEnter}"
             />
         </div>
         <div class="mt-2">
@@ -50,6 +71,7 @@
                 placeholder="Username"
                 disabled="{loading}"
                 bind:value="{username}"
+                on:keypress="{onEnter}"
             />
         </div>
         <div class="mt-2">
@@ -59,6 +81,17 @@
                 type="password"
                 disabled="{loading}"
                 bind:value="{password}"
+                on:keypress="{onEnter}"
+            />
+        </div>
+        <div class="mt-2">
+            <TextField
+                class="w-full"
+                placeholder="Password Confirmation"
+                type="password"
+                disabled="{loading}"
+                bind:value="{passwordConfirmation}"
+                on:keypress="{onEnter}"
             />
         </div>
         <div class="flex mt-4 justify-between">

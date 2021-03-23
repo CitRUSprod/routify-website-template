@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { onMount } from "svelte"
+
     type Type = "text" | "password" | "number"
 
     export let value: string | number | null | undefined = undefined
@@ -6,9 +8,18 @@
     export let type: Type = "text"
     export let disabled = false
     export let readonly = false
+    export let autofocus = false
 
     let klass = ""
     export { klass as class }
+
+    let input: HTMLInputElement
+
+    onMount(() => {
+        if (autofocus) {
+            input.focus()
+        }
+    })
 
     function setTextType(node: HTMLInputElement) {
         node.type = type
@@ -23,6 +34,8 @@
         disabled="{disabled}"
         readonly="{readonly}"
         bind:value
+        bind:this="{input}"
+        on:keypress
     />
 {:else}
     <input
@@ -30,8 +43,10 @@
         placeholder="{placeholder}"
         disabled="{disabled}"
         readonly="{readonly}"
-        use:setTextType
         bind:value
+        bind:this="{input}"
+        use:setTextType
+        on:keypress
     />
 {/if}
 

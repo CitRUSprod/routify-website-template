@@ -26,7 +26,7 @@
 
     const dispatch = createEventDispatcher()
 
-    function click() {
+    function onClick() {
         if (!blocked) {
             dispatch("click")
         }
@@ -44,7 +44,7 @@
     class:warning="{color === 'warning'}"
     class:info="{color === 'info'}"
     disabled="{disabled}"
-    on:click="{click}"
+    on:click="{onClick}"
 >
     <div>
         <slot />
