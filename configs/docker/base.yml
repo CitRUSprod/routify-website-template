@@ -19,6 +19,8 @@ services:
         restart: always
         environment:
             MONGO_HOST: mongo
+            MONGO_USERNAME: ${MONGO_USERNAME}
+            MONGO_PASSWORD: ${MONGO_PASSWORD}
             MONGO_DB_NAME: ${MONGO_DB_NAME}
             LOCAL_CLIENT_SECRET: ${LOCAL_CLIENT_SECRET}
             GMAIL_USERNAME: ${GMAIL_USERNAME}
