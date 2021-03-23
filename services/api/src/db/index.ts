@@ -1,14 +1,25 @@
 import mongoose from "mongoose"
 import * as models from "./models"
 
+interface Options {
+    host: string
+    port: number
+    username: string
+    password: string
+    dbName: string
+}
+
 export default class Database {
     static readonly models = models
 
-    static connect(host: string, port: number, name: string) {
-        return mongoose.connect(`mongodb://${host}:${port}/${name}`, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
+    static connect({ host, port, username, password, dbName }: Options) {
+        return mongoose.connect(
+            `mongodb://${username}:${password}@${host}:${port}/${dbName}?authSource=admin`,
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true
+            }
+        )
     }
 
     static close() {

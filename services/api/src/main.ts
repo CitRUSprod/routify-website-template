@@ -9,16 +9,21 @@ const port = 6702
 
 const app = fastify()
 
-const mongoPort = process.env.MONGO_PORT ?? "27017"
-const mongoHost = process.env.MONGO_HOST ?? "localhost"
-const mongoDbName = process.env.MONGO_DB_NAME as string
+const mongo = {
+    host: process.env.MONGO_HOST ?? "localhost",
+    port: parseInt(process.env.MONGO_PORT ?? "27017"),
+    username: process.env.MONGO_USERNAME as string,
+    password: process.env.MONGO_PASSWORD as string,
+    dbName: process.env.MONGO_DB_NAME as string
+}
+
 const localClientSecret = process.env.LOCAL_CLIENT_SECRET as string
 
 app.register(jwt, { secret: localClientSecret }).register(cookie).register(auth)
 
 app.register(authRoute, { prefix: "/auth" })
 
-Database.connect(mongoHost, parseInt(mongoPort), mongoDbName)
+Database.connect(mongo)
     .then(() => {
         app.listen(port, "0.0.0.0", err => {
             if (err) throw err
