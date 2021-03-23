@@ -2,15 +2,15 @@ const path = require("path")
 const dotenv = require("dotenv")
 const { build } = require("./base")
 
-const { parsed: parsedEnvs } = dotenv.config({
+const { parsed: parsedEnv } = dotenv.config({
     path: path.join(__dirname, "../../../.env")
 })
 
-function createProcessEnvs(envs) {
-    if (envs) {
+function createProcessEnv(env) {
+    if (env) {
         const result = {}
 
-        for (const [key, value] of Object.entries(envs)) {
+        for (const [key, value] of Object.entries(env)) {
             result[`process.env.${key}`] = JSON.stringify(value)
         }
 
@@ -23,7 +23,7 @@ function createProcessEnvs(envs) {
 const devConfig = {
     sourcemap: "inline",
     define: {
-        ...createProcessEnvs(parsedEnvs),
+        ...createProcessEnv(parsedEnv),
         "process.env.NODE_ENV": JSON.stringify("development")
     },
     inject: [path.join(__dirname, "sourcemaps.js")]
