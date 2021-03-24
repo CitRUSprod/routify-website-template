@@ -1,19 +1,24 @@
-import axios from "redaxios"
+import axios from "axios"
 import cookies from "js-cookie"
 
-function syncToken() {
-    const token = cookies.get("token")
+axios.interceptors.request.use(config => {
+    if (config.url) {
+        const url = new URL(
+            config.url[0] === "/"
+                ? `${location.origin}${config.url}`
+                : config.url
+        )
 
-    if (token) {
-        axios.defaults.headers ??= {}
-        axios.defaults.headers.authorization = `Bearer ${token}`
-    } else {
-        delete axios.defaults.headers?.authorization
+        if (location.origin === url.origin && !config.headers.Authorization) {
+            const token = cookies.get("token")
+
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`
+            }
+        }
     }
 
-    return token
-}
+    return config
+})
 
-syncToken()
-
-export { axios, cookies, syncToken }
+export { axios, cookies }

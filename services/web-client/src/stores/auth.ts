@@ -1,4 +1,4 @@
-import { axios, cookies, syncToken } from "@/assets/utils"
+import { axios, cookies } from "@/assets/utils"
 import { writable, derived } from "svelte/store"
 
 interface User {
@@ -14,7 +14,7 @@ function createAuthStore() {
     const syncing = derived(writableSyncing, s => s)
 
     async function sync() {
-        const token = syncToken()
+        const token = cookies.get("token")
 
         if (token) {
             writableSyncing.set(true)

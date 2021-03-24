@@ -1,9 +1,9 @@
 dependencies:
   '@mdi/js': 5.9.55
   '@roxi/routify': 2.15.1
+  axios: 0.21.1
   js-cookie: 2.2.1
   nprogress: 0.2.0
-  redaxios: 0.4.1
   spassr: 2.4.0
   svelte: 3.35.0
 devDependencies:
@@ -423,6 +423,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.3
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -1064,6 +1070,17 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.13.3:
+    dev: false
+    engines:
+      node: '>=4.0'
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    resolution:
+      integrity: sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
   /forever-agent/0.6.1:
     dev: false
     resolution:
@@ -2095,10 +2112,6 @@ packages:
       node: '>=8.10.0'
     resolution:
       integrity: sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
-  /redaxios/0.4.1:
-    dev: false
-    resolution:
-      integrity: sha512-+Jhh1j8/H0KBro+Hih/MrDEJ1PICaU10JA6iu5b3+uvgRI+5n2M7qpMNXq7eC/0fspP0tTq49ONXlGWFdRoNLg==
   /request-promise-core/1.1.4_request@2.88.2:
     dependencies:
       lodash: 4.17.21
@@ -2995,10 +3008,10 @@ specifiers:
   '@snowpack/plugin-typescript': 1.2.1
   '@types/js-cookie': 2.2.6
   '@types/nprogress': 0.2.0
+  axios: 0.21.1
   js-cookie: 2.2.1
   npm-run-all: 4.1.5
   nprogress: 0.2.0
-  redaxios: 0.4.1
   snowpack: 3.0.13
   snowpack-plugin-hash: 0.14.2
   spassr: 2.4.0
