@@ -16,7 +16,7 @@
             await axios.post("/api/auth/send-verification-email")
             messages.add("success", "Email was sent")
         } catch (err) {
-            messages.add("error", err.data?.message ?? err.message)
+            messages.add("error", err.response.data.message ?? err.message)
         }
     }
 </script>

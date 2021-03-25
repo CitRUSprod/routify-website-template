@@ -37,7 +37,7 @@
             messages.add("success", "You have successfully registered")
             $goto($url("./login"))
         } catch (err) {
-            messages.add("error", err.data?.message ?? err.message)
+            messages.add("error", err.response.data.message ?? err.message)
         }
 
         loading = false

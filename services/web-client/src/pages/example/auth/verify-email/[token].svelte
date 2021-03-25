@@ -8,7 +8,7 @@
             await axios.post("/api/auth/verify-email", { token: $params.token })
             messages.add("success", "Email verified successfully")
         } catch (err) {
-            messages.add("error", err.data?.message ?? err.message)
+            messages.add("error", err.response.data.message ?? err.message)
         }
 
         $redirect("/")
