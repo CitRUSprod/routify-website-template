@@ -1,9 +1,5 @@
 const isDev = process.env.NODE_ENV === "development"
 
-const srcMount = {
-    src: "/build"
-}
-
 module.exports = {
     devOptions: {
         open: "none",
@@ -19,12 +15,11 @@ module.exports = {
         target: "es2020"
     },
     mount: {
-        ...(isDev ? {} : srcMount),
-        "src/static": {
+        static: {
             url: "/",
             static: true
         },
-        ...(isDev ? srcMount : {}),
+        src: "/build",
         ".routify": "/routify"
     },
     alias: {
@@ -35,7 +30,7 @@ module.exports = {
         {
             match: "routes",
             src: ".*",
-            dest: "/template.html"
+            dest: "/build/template.html"
         }
     ],
     plugins: [
