@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { onMount } from "svelte"
     import { params, redirect } from "@roxi/routify"
     import { axios } from "@/assets/utils"
     import { messages } from "@/stores"
 
-    onMount(async () => {
+    async function verifyEmail() {
         try {
             await axios.post("/api/auth/verify-email", { token: $params.token })
             messages.add("success", "Email verified successfully")
@@ -13,5 +12,9 @@
         }
 
         $redirect("/")
-    })
+    }
+
+    if (window.routify.inBrowser) {
+        verifyEmail()
+    }
 </script>

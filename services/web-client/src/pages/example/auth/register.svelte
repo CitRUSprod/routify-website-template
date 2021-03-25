@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Button, TextField } from "@/components"
 
-    import { url, redirect } from "@roxi/routify"
+    import { url, redirect, goto } from "@roxi/routify"
     import { auth, messages } from "@/stores"
 
     const { user, syncing } = auth
@@ -35,7 +35,7 @@
         try {
             await auth.register(trimmedEmail, trimmedUsername, trimmedPassword)
             messages.add("success", "You have successfully registered")
-            $redirect($url("./login"))
+            $goto($url("./login"))
         } catch (err) {
             messages.add("error", err.data?.message ?? err.message)
         }
