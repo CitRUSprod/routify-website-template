@@ -5,16 +5,19 @@ dependencies:
   fastify-auth: 1.0.1
   fastify-cookie: 5.3.0
   fastify-jwt: 2.4.0
+  fastify-websocket: 3.1.0
   lodash: 4.17.21
   mongoose: 5.10.18
   nodemailer: 6.5.0
   validator: 13.5.2
+  ws: 7.4.4
 devDependencies:
   '@types/lodash': 4.14.168
   '@types/mongoose': 5.10.4
   '@types/node': 14.14.35
   '@types/nodemailer': 6.4.1
   '@types/validator': 13.1.3
+  '@types/ws': 7.4.0
   dotenv: 8.2.0
   esbuild: 0.9.6
   nodemon: 2.0.7
@@ -116,6 +119,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-DaOWN1zf7j+8nHhqXhIgNmS+ltAC53NXqGxYuBhWqWgqolRhddKzfZU814lkHQSTG0IUfQxU7Cg0gb8fFWo2mA==
+  /@types/ws/7.4.0:
+    dependencies:
+      '@types/node': 14.14.35
+    dev: true
+    resolution:
+      integrity: sha512-Y29uQ3Uy+58bZrFLhX36hcI3Np37nqWE7ky5tjiDoy1GDZnIwVxS0CgF+s+1bXMzjKBFy+fqaRfb708iNzdinw==
   /abbrev/1.1.1:
     resolution:
       integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
@@ -715,6 +724,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==
+  /fastify-websocket/3.1.0:
+    dependencies:
+      fastify-plugin: 3.0.0
+      ws: 7.4.4
+    dev: false
+    resolution:
+      integrity: sha512-YXylshWmUvLN95bnlFQo3EX/tEKPfUiGS7H55RqVSpOwsHb1eiGk184zrdLBZIYOnDNq+08yyVkKMOISzral3w==
   /fastify/3.14.0:
     dependencies:
       '@fastify/proxy-addr': 3.0.0
@@ -2393,6 +2409,20 @@ packages:
     dev: true
     resolution:
       integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==
+  /ws/7.4.4:
+    dev: false
+    engines:
+      node: '>=8.3.0'
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    resolution:
+      integrity: sha512-Qm8k8ojNQIMx7S+Zp8u/uHOx7Qazv3Yv4q68MiWWWOJhiwG5W3x7iqmRtJo8xxrciZUY4vRxUTJCKuRnF28ZZw==
   /xdg-basedir/4.0.0:
     dev: true
     engines:
@@ -2420,6 +2450,7 @@ specifiers:
   '@types/node': 14.14.35
   '@types/nodemailer': 6.4.1
   '@types/validator': 13.1.3
+  '@types/ws': 7.4.0
   argon2: 0.27.1
   dotenv: 8.2.0
   esbuild: 0.9.6
@@ -2427,6 +2458,7 @@ specifiers:
   fastify-auth: 1.0.1
   fastify-cookie: 5.3.0
   fastify-jwt: 2.4.0
+  fastify-websocket: 3.1.0
   lodash: 4.17.21
   mongoose: 5.10.18
   nodemailer: 6.5.0
@@ -2435,3 +2467,4 @@ specifiers:
   source-map-support: 0.5.19
   typescript: 4.2.3
   validator: 13.5.2
+  ws: 7.4.4

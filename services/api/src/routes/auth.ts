@@ -5,6 +5,7 @@ import argon2 from "argon2"
 import nodemailer from "nodemailer"
 import validator from "validator"
 import Database from "@/db"
+import { UserPayload } from "@/assets/types"
 
 interface LoginData {
     email: string
@@ -19,10 +20,6 @@ interface RegisterData {
 
 interface VerifyEmailData {
     token: string
-}
-
-interface UserPayload {
-    id: string
 }
 
 interface EmailVerificationToken {

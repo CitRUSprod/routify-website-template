@@ -15,6 +15,7 @@
     let links: Array<Link>
     $: links = [
         { text: "Home", url: "./" },
+        { text: "Chat", url: "./chat" },
         ...($user ? [{ text: "Profile", url: "./profile" }] : [])
     ]
 </script>

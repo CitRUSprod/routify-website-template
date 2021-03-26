@@ -2,8 +2,9 @@ import fastify from "fastify"
 import auth from "fastify-auth"
 import jwt from "fastify-jwt"
 import cookie from "fastify-cookie"
+import websocket from "fastify-websocket"
 import Database from "@/db"
-import { authRoute } from "@/routes"
+import { authRoute, wsRoute } from "@/routes"
 
 const port = 6702
 
@@ -19,9 +20,13 @@ const mongo = {
 
 const localClientSecret = process.env.LOCAL_CLIENT_SECRET as string
 
-app.register(jwt, { secret: localClientSecret }).register(cookie).register(auth)
+app.register(jwt, { secret: localClientSecret })
+    .register(cookie)
+    .register(auth)
+    .register(websocket)
 
 app.register(authRoute, { prefix: "/auth" })
+app.register(wsRoute, { prefix: "/ws" })
 
 Database.connect(mongo)
     .then(() => {

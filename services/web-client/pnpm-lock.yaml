@@ -4,6 +4,7 @@ dependencies:
   axios: 0.21.1
   js-cookie: 2.2.1
   nprogress: 0.2.0
+  reconnecting-websocket: 4.4.0
   spassr: 2.4.0
   svelte: 3.35.0
 devDependencies:
@@ -2112,6 +2113,10 @@ packages:
       node: '>=8.10.0'
     resolution:
       integrity: sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
+  /reconnecting-websocket/4.4.0:
+    dev: false
+    resolution:
+      integrity: sha512-D2E33ceRPga0NvTDhJmphEgJ7FUYF0v4lr1ki0csq06OdlxKfugGzN0dSkxM/NfqCxYELK4KcaTOUOjTV6Dcng==
   /request-promise-core/1.1.4_request@2.88.2:
     dependencies:
       lodash: 4.17.21
@@ -3012,6 +3017,7 @@ specifiers:
   js-cookie: 2.2.1
   npm-run-all: 4.1.5
   nprogress: 0.2.0
+  reconnecting-websocket: 4.4.0
   snowpack: 3.0.13
   snowpack-plugin-hash: 0.14.2
   spassr: 2.4.0
