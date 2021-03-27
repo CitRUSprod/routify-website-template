@@ -2,6 +2,8 @@
 
 ### Get started
 
+> **NOTE:** Before using this template, you need to install `pnpm` (only for development), `docker` and `docker-compose`.
+
 Create a new project based on this template using degit:
 
 ```sh
@@ -25,7 +27,7 @@ pnpm i
 pnpm dev --parallel
 
 # Production
-scripts/prod up -d
+scripts/start
 ```
 
 Make a commit via commitizen:
@@ -55,9 +57,9 @@ scripts/prod [docker-compose command] # Any docker-compose command
 
 # or shortcuts
 
-scripts/start
-scripts/stop
-scripts/restart
+scripts/start # Start
+scripts/stop # Stop
+scripts/restart # Restart
 ```
 
 ### Settings
