@@ -34,10 +34,6 @@
 </div>
 
 <style lang="postcss">
-    .break-text {
-        word-break: break-word;
-    }
-
     .success {
         @apply bg-success;
     }

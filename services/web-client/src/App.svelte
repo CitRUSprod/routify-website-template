@@ -21,4 +21,8 @@
     #routify-app {
         @apply relative flex flex-col;
     }
+
+    .break-text {
+        word-break: break-word;
+    }
 </style>

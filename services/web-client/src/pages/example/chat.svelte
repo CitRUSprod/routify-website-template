@@ -1,10 +1,15 @@
 <script lang="ts">
     import { TextField } from "@/components"
 
-    import { onDestroy, tick } from "svelte"
+    import OverlayScrollbars from "overlayscrollbars"
+    import { onMount, onDestroy, tick } from "svelte"
     import { auth } from "@/stores"
     import { WSClient, WSMessageType } from "@/assets/ws"
     import type { WSMessage } from "@/assets/ws"
+
+    export let scoped: { ws: WSClient }
+
+    $: ({ ws } = scoped)
 
     const { user } = auth
 
@@ -12,36 +17,48 @@
 
     let messages: Array<ReceivedMessageData> = []
 
-    let ws: WSClient
+    let messagesWrapper: HTMLElement
+    let scrollbar: OverlayScrollbars
 
-    if (window.routify.inBrowser) {
-        ws = new WSClient()
-
-        ws.on("message", WSMessageType.GChatReceivedMessage, data => {
-            messages.push(data)
-            messages = messages
-        })
+    const messageListener = (data: ReceivedMessageData) => {
+        messages.push(data)
+        messages = messages
     }
 
-    onDestroy(() => {
-        ws?.off().close()
+    onMount(() => {
+        if (window.routify.inBrowser) {
+            ws.on(
+                "message",
+                WSMessageType.GChatReceivedMessage,
+                messageListener
+            )
+
+            scrollbar = OverlayScrollbars(messagesWrapper, {
+                scrollbars: {
+                    autoHide: "move"
+                }
+            })
+        }
     })
 
-    let messagesWrapper: HTMLElement
+    onDestroy(() => {
+        ws.off("message", WSMessageType.GChatReceivedMessage, messageListener)
+        scrollbar.destroy()
+    })
 
     async function scrollDown() {
-        const height = messagesWrapper.clientHeight + messagesWrapper.scrollTop
+        const element = scrollbar.getElements().viewport
+        const height = element.clientHeight + element.scrollTop
 
-        if (height === messagesWrapper.scrollHeight) {
+        if (height === element.scrollHeight) {
             await tick()
-            messagesWrapper.scroll({
-                top: messagesWrapper.scrollHeight,
-                behavior: "smooth"
-            })
+            scrollbar.scroll(element.scrollHeight, 200)
         }
     }
 
-    $: messages.length && scrollDown()
+    $: if (messages.length > 0) {
+        scrollDown()
+    }
 
     let messageText = ""
 
@@ -76,18 +93,20 @@
                 class="h-full w-full overflow-y-auto absolute"
                 bind:this="{messagesWrapper}"
             >
-                {#each messages as message}
-                    <div class="py-1">
-                        <b>{message.sender}:</b>
-                        <span>{message.text}</span>
-                    </div>
-                {:else}
-                    <div class="flex flex-col h-full justify-center">
-                        <h1 class="text-center text-default text-2xl">
-                            No messages
-                        </h1>
-                    </div>
-                {/each}
+                <div class="h-full w-full">
+                    {#each messages as message}
+                        <div class="py-1 break-text">
+                            <b>{message.sender}:</b>
+                            <span>{message.text}</span>
+                        </div>
+                    {:else}
+                        <div class="flex flex-col h-full justify-center">
+                            <h1 class="text-center text-default text-2xl">
+                                No messages
+                            </h1>
+                        </div>
+                    {/each}
+                </div>
             </div>
         </div>
         {#if $user}
